@@ -5,7 +5,7 @@ upstream <%= @app_name %> {
 server {
     listen       80;
     server_name  <%= @urls.join(' ') %>;
-    <% if @enable_ssl? %>
+    <% if @enable_ssl %>
     listen       443 ssl;
     ssl_certificate <%= @root_folder %>/current/cert/server.crt;
     ssl_certificate_key <%= @root_folder %>/current/cert/server.key;
