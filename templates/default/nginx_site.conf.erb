@@ -5,6 +5,11 @@ upstream <%= @app_name %> {
 server {
     listen       80;
     server_name  <%= @urls.join(' ') %>;
+    <% if @enable_ssl? %>
+    listen       443 ssl;
+    ssl_certificate <%= @root_folder %>/current/cert/server.crt;
+    ssl_certificate_key <%= @root_folder %>/current/cert/server.key;
+    <% end %>
     charset utf-8;
     root <%= @root_folder %>/current/public;
     <% @nginx_server.each do |k, v| %>

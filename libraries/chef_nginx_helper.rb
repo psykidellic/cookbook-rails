@@ -31,7 +31,8 @@ class Chef
           :app_name      => "#{app['id']}_#{env['name']}.conf",
           :urls          => env['urls'],
           :root_folder   => env['folder'],
-          :nginx_server  => env['nginx_server']
+          :nginx_server  => env['nginx_server'],
+          :enable_ssl    => env['enable_ssl']
           )
           owner 'root'
           group 'root'
